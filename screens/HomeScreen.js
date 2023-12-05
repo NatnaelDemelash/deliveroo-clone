@@ -7,6 +7,7 @@ import {
   Platform,
   StyleSheet,
   TextInput,
+  ScrollView,
 } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -14,8 +15,10 @@ import {
   AdjustmentsVerticalIcon,
   ChevronDownIcon,
   MagnifyingGlassIcon,
-  UserIcon,
+  UserCircleIcon,
 } from "react-native-heroicons/solid";
+import Categories from "../components/Categories";
+import FeaturedRow from "../components/FeaturedRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -44,12 +47,12 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <UserIcon fill="#00CCBB" size={25} />
+        <UserCircleIcon fill="#00CCBB" size={25} />
       </View>
 
       {/* SERACHBAR */}
       <View className="flex-row items-center mb-2 px-2">
-        <View className="bg-gray-300 flex-1 flex-row space-x-2 mx-4 px-4 py-2 rounded-md">
+        <View className="bg-gray-200 flex-1 flex-row space-x-2 mx-4 px-4 py-2 rounded-md">
           <MagnifyingGlassIcon fill="grey" />
           <TextInput
             placeholder="Restaurants and Cusines"
@@ -58,6 +61,29 @@ const HomeScreen = () => {
         </View>
         <AdjustmentsVerticalIcon size={24} fill="#00CCBB" />
       </View>
+
+      {/* BODY */}
+      <ScrollView className="bg-gray-100">
+        {/* Categories */}
+        <Categories />
+
+        {/* Featured Rows */}
+        <FeaturedRow
+          id="1"
+          title="Featured"
+          description="Paid placement from our partners"
+        />
+        <FeaturedRow
+          id="2"
+          title="Tasty Discounts"
+          description="Everyone been enjoying these jucy discount"
+        />
+        <FeaturedRow
+          id="3"
+          title="Offers near you"
+          description="Why not support your local resturant tonight"
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
