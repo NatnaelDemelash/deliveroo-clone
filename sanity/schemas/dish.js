@@ -18,7 +18,7 @@ export default {
     {
       name: 'price',
       type: 'number',
-      title: 'Price of dish in GBP',
+      title: 'Price of dish in ETB',
     },
     {
       name: 'image',
